@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <title>TUC Sales</title>
+</head>
+
+<body>
+    <h1>TUC Sales</h1>
+    <h2>Betalning</h2>
+    <div class="formdiv">
+        <h3 id="information"></h3>
+    </div>
+    <div class="formdiv">        
+        <h4>Vänligen välj betalningsmedel!</h4>
+
+        <form action="OrderComplete.html">
+
+            <!-- Välj betalningsmedel-->
+            <div>
+                <label for="payment">Kreditkort</label>
+                <input type="radio" onclick="Betalningar(1)" name="payment" id="BetalningKort"><br>
+            </div>
+            <div>
+                <label for="payment">Klarna</label>
+                <input type="radio" onclick="Betalningar(2)" name="payment" id="BetalningKlarna"><br>
+            </div>
+            <div>
+                <label for="payment">Swish</label>
+                <input type="radio" onclick="Betalningar(3)" name="payment" id="BetalningSwish"><br>
+            </div>
+
+            <!-- Kreditkort-->
+            <div id="kreditkort" class="hide">
+                <br>
+                <div>
+                    <label for="kreditkort">Kreditkort</label><br>
+                    <input type="tel" id="kreditkort" inputmode="numeric" name="kreditkort" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" id="kreditkort" pattern="[0-9]{16}" required>
+                </div>
+                <br>
+                <div>
+                    <label for="Expiration">Giltighetstid</label><br>
+                    <input type="month" name="Expiration" class="MinDate" min="2021-12" required>
+                </div>
+                <br>
+                <div>
+                    <label for="CVV">CVV</label><br>
+                    <input type="text" name="CVV" maxlength="3" pattern="[0-9]{3}" required>
+                </div>
+                <br>
+                <input type="submit" value="Buy"></input>
+            </div>
+        </form>
+
+
+        <!-- Swish-->
+        <form action="OrderComplete.html">
+            <div id="swish" class="hide">
+                <p>Öppna BankID</p>
+                <h3 id="SwishInformation"></h3>
+
+                <button onclick="swishvisible();return false">BankID</button><br>
+                <br>
+                <div id=bankidswish style=display:none>
+                    <input type="submit" value="Buy"></input>
+                </div>
+            </div>
+        </form>
+
+
+
+        <!-- Klarna-->
+        <form action="OrderComplete.html">
+            <div id="klarna" class="hide">
+                <p>Du kommer få fakturan på</p>
+                <h3 id="KlarnaInformation"></h3>
+
+                <input type="submit" value="Buy"></input>
+            </div>
+        </form>
+    </div>
+
+    <div class="formdiv">
+        <button onclick="window.location.href='checkout.html'">Tillbaka till kontaktuppgifter</button>
+    </div>
+
+
+    <div class="cartcontainer">
+    </div>
+    <script src="cart.js"></script>
+
+    <script>
+        KlarnaInformationPrint();
+        InformationPrint();
+        SwishInformationPrint();
+        displayCart();
+    </script>
+</body>
+
+</html>

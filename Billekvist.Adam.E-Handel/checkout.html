@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <title>TUC Sales</title>
+</head>
+
+<body>
+    <h1>TUC Sales</h1>
+    <h2>Ange din information</h2>
+    <!-- Varor-->
+    <div class="cartcontainer">
+
+    </div>
+
+    <!-- Ta bort Varor / Gå Tillbaka-->
+    <div class="formdiv">
+        <button onclick="window.location.href='index.html'">Tillbaka till shoppen</button>
+        <button class="button" onclick="TomKorgen()">Töm Korgen</button>
+    </div>
+
+
+    <div class="formdiv">
+        <form action="checkout_2.html" onsubmit="return UserDetails()">
+            <!-- Förnamn-->
+            <div>
+                <label for="firstname">Förnamn</label><br>
+                <input type="text" name="firstname" placeholder="Namn" id="firstname" maxlength="50" pattern="[A-Öa-ö]{2}[A-Öa-ö]+" required>
+            </div>
+            <br>
+            <!-- Efternamn-->
+            <div>
+                <label for="lastname">Efternamn</label><br>
+                <input type="text" name="lastname" placeholder="Efternamn" id="lastname" maxlength="50" pattern="[A-Öa-ö]{2}[A-Öa-ö]+" required>
+            </div>
+            <br>
+            <!-- Email-->
+            <div>
+                <label for="Email">Email</label><br>
+                <input type="email" name="email" placeholder="xxxx@email.com" id="email" pattern="[^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$]" required>
+            </div>
+            <br>
+            <!-- Telefonnummer-->
+            <div>
+                <label for="Telefonnummer">Telefonnummer</label><br>
+                <input type="text" name="number" placeholder="07XXXXXXXX" maxlength="10" id="number" pattern="(0)[0-9]{9}" required>
+            </div>
+            <br>
+            <!-- Adress-->
+            <div>
+                <label for="adress">Adress</label><br>
+                <input type="text" name="adress" placeholder="xxxxxxxx" maxlength="90" id="adress"  required>
+            </div>
+            <br>
+            <!-- Postnummer-->
+            <div>
+                <label for="postnummer">Postnummer</label><br>
+                <input type="text" name="postnummer" placeholder="xxxxx" maxlength="5" id="postnummer"  pattern="[0-9]{5}" required>
+            </div>
+            <br>
+            <!-- Fraktalternativ-->
+            <div>
+                <h2 id="Frakt">Fraktalternativ</h2>
+                <div id="BudBee">
+                    <label for="Frakt">BudBee</label>
+                    <input type="radio" name="Frakt" id="BudBee">
+                </div>
+                <br>
+                <div id="Postnord">
+                    <label for="Frakt">Postnord</label>
+                    <input type="radio" name="Frakt" id="Postnord">
+                </div>
+                <br>
+                <div id="DHL">
+                    <label for="Frakt">DHL</label>
+                    <input type="radio" name="Frakt" id="DHL">
+                </div>
+                <br>
+            </div>
+            <br>
+            <!-- Godkännande av affärens villkor -->
+            <div>
+                <input type="checkbox" name="gdpr" id="gdpr" value="gdpr66" required> Jag godkänner TUC Sales villkor</a>
+            </div>
+            <br>
+            <input type="submit" value="Fortsätt">
+        </form>
+
+    </div>
+    <script src="cart.js"></script>
+    <script>
+        displayCart();
+    </script>
+</body>
+
+</html>
